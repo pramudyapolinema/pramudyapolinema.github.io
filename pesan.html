@@ -1,0 +1,167 @@
+<!--
+	Pramudya Wibowo
+	TI 2D
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Warkop Gunung</title>
+    <link rel="stylesheet" type="text/css" href="assets/stylepesan.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylemennu.css">
+    <link rel="icon" href="img/ikon.png">
+    <script src="assets/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="assets/fontawesome-free-5.15.1-web/css/all.css">
+    <script>
+        $(function() {
+            $(".navbar").load("assets/navbar.html");
+            $("footer").load("assets/footer.html");
+        });
+
+    </script>
+    <script type="text/javascript">
+        function pesan() {
+            var jumlahpesan = document.getElementById("jumlahbaris").value;
+            var table = document.getElementById("tabelpemesanan");
+            var rowCount = table.rows.length;
+            if (rowCount > 0 || jumlahpesan == 0) {
+                for (var i = 0; i < rowCount; i++) {
+                    document.getElementById("tabelpemesanan").deleteRow(0);
+                }
+                pesan();
+            } else {
+                var row = table.insertRow(0);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                cell1.outerHTML = '<th>Menu</th>';
+                cell2.outerHTML = '<th>Harga</th>';
+                cell3.outerHTML = '<th>Jumlah</th>';
+                cell4.outerHTML = '<th>Total</th>';
+
+                for (var i = 0; i < jumlahpesan; i++) {
+                    row = table.insertRow(1);
+                    cell1 = row.insertCell(0);
+                    cell2 = row.insertCell(1);
+                    cell3 = row.insertCell(2);
+                    cell4 = row.insertCell(3);
+                    cell1.innerHTML = '<select name="menu" id="menu' + i + '" onchange="cekharga()"><option value="robustagold">Robusta Gold</option><option value="luwaktoraja">Luwak Toraja</option><option value="sumatera">Sumatera Mandhelling</option>';
+                    cell2.innerHTML = '<div id="harga' + i + '"></div>';
+                    cell3.innerHTML = '<input type="number" min="0" value="0" id="jumlahpesanan' + i + '" onchange="cektotal()">';
+                    cell4.innerHTML = '<div id="total' + i + '">Rp.0</div>';
+                }
+                row = table.insertRow(-1);
+                cell1 = row.insertCell(0);
+                cell2 = row.insertCell(1);
+                cell1.outerHTML = '<th colspan="3">Total</th>';
+                cell2.innerHTML = '<div id="totaltotal"></div>';
+
+                row = table.insertRow(-1);
+                cell1 = row.insertCell(0);
+                cell2 = row.insertCell(1);
+                cell1.outerHTML = '<th colspan="3">Diskon</th>';
+                cell2.innerHTML = '<div id="diskon"></div>';
+                
+                row = table.insertRow(-1);
+                cell1 = row.insertCell(0);
+                cell2 = row.insertCell(1);
+                cell1.outerHTML = '<th colspan = "3">Bayar</th>';
+                cell2.innerHTML = '<div id="bayar"></div>';
+            }
+            cekharga();
+        };
+
+        function cekharga() {
+            var jumlahpesan = document.getElementById("jumlahbaris").value;
+            for (var i = 0; i < jumlahpesan; i++) {
+                var menu = document.getElementById("menu" + i).value;
+                if (menu == "robustagold") {
+                    document.getElementById("harga" + i).innerHTML = '<div id="harganya' + i + '">Rp.8000</div>';
+                } else if (menu == "luwaktoraja") {
+                    document.getElementById("harga" + i).innerHTML = '<div id="harganya' + i + '">Rp.22000</div>';
+                } else if (menu == "sumatera") {
+                    document.getElementById("harga" + i).innerHTML = '<div id="harganya' + i + '">Rp.18000</div>';
+                }
+            }
+            cektotal();
+        };
+
+        function cektotal() {
+            var jumlahpesan = document.getElementById("jumlahbaris").value;
+            for (var i = 0; i < jumlahpesan; i++) {
+                var harganya = document.getElementById("harganya" + i).innerHTML;
+                var numb = harganya.match(/\d/g).join("");
+                var harga = numb;
+                var jumlahpesanan = document.getElementById("jumlahpesanan" + i).value;
+                var total = harga * jumlahpesanan;
+                document.getElementById('total' + i).innerHTML = '<div id="totalnya' + i + '" value="' + total + '">Rp.' + total + '</div>';
+            }
+            cektotaltotal();
+        };
+
+        function cektotaltotal() {
+            var jumlahpesan = document.getElementById("jumlahbaris").value;
+            var totalpemesanan = 0;
+            for (var i = 0; i < jumlahpesan; i++) {
+                var totalnya = document.getElementById("totalnya" + i).innerHTML;
+                var numb = totalnya.match(/\d/g).join("");
+                totalpemesanan = totalpemesanan + parseInt(numb);
+
+            }
+            document.getElementById("totaltotal").innerHTML = "Rp." + totalpemesanan;
+            diskon(totalpemesanan, jumlahpesan);
+        };
+
+        function diskon(total, jumlah) {
+            var diskon = 0;
+            if (document.getElementById("member").checked){
+                if (jumlah < 2 ){
+                    diskon = total*0.05;
+                } else if (jumlah < 3){
+                    diskon = total*0.07;
+                } else {
+                    diskon = total*0.1;
+                }
+            } else {
+                if (jumlah < 3){
+                    diskon = 0;
+                } else if (jumlah < 5){
+                    diskon = total*0.05;
+                } else {
+                    diskon = total*0.05;
+                }
+            }
+            var bayar = total - Math.floor(diskon);
+            document.getElementById("diskon").innerHTML = "Rp." + Math.floor(diskon);
+            document.getElementById("bayar").innerHTML = "Rp." + bayar;
+        }
+
+    </script>
+</head>
+
+<body onload="pesan()">
+    <div class="header">
+        <div class="bg">
+            <a href="#"><img class="logo" src="img/logo.png"></a>
+            <div class="judul">Warkop Gunung</div>
+        </div>
+    </div>
+    <div class="navbar"></div>
+    <div class="container">
+        <div class="text welcome">
+            <h2><b>PEMESANAN</b></h2>
+            <p>Silahkan memesan menu di <font style="font-family: Brush Script MT;">Warkop Gunung</font> melalui form di bawah ini</p>
+        </div>
+        <section class="pesanan">
+            Masukkan Jumlah Menu : <input type="number" min="0" value="1" id="jumlahbaris" onchange="pesan()"><br>
+            Kategori member anda : <input type="radio" id="member" name="kategori" onclick="cektotaltotal()"> Member <input type="radio" id="non-member" name="kategori" checked onclick="cektotaltotal()"> Non-Member
+        </section>
+        <div id="check"></div>
+        <table id="tabelpemesanan">
+        </table>
+        <footer></footer>
+    </div>
+</body>
+
+</html>

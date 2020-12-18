@@ -1,0 +1,95 @@
+<!--
+	Pramudya Wibowo
+	TI 2D
+-->
+<head>
+<link rel="stylesheet" href="assets/fontawesome-free-5.15.1-web/css/all.css">
+<link rel="stylesheet" href="assets/stylesidebar.css">
+<script src="assets/jquery-3.5.1.js"></script>
+<script src="https://maps.google.com/maps/api/js?AIzaSyC4Dcza_IVytr1XzOwT9YhPLsJuKkAdPK8"></script>
+<script type="text/javascript">
+    function home() {
+        document.getElementById("content").innerHTML =
+            "Ini adalah halaman tentang saya, silahkan pilih menu yang ada di sebelah kiri!";
+        document.getElementById("mapholder").style.visibility = "hidden";
+    }
+
+    function profile() {
+        document.getElementById("content").innerHTML =
+            "Nama&emsp;: Pramudya Wibowo<br>Tempat Lahir&emsp;: Probolinggo<br>Tanggal Lahir&emsp;: 24 Januari 2001<br>Pekerjaan&emsp;: Mahasiswa";
+        document.getElementById("mapholder").style.visibility = "hidden";
+    }
+
+    function about() {
+        document.getElementById("content").innerHTML =
+            "Pendidikan<br>SD&emsp;: SDN Sukabumi 5 Probolinggo<br>SMP&emsp;: SMPN 1 Probolinggo<br>SMK&emsp;: SMKN 2 Probolinggo";
+        document.getElementById("mapholder").style.visibility = "hidden";
+    }
+
+    function contact() {
+        document.getElementById("content").innerHTML =
+            "e-mail&emsp;: <a href='mailto:19417200542@student.polinema.ac.id'>1941720054@student.polinema.ac.id</a><br>No. HP&emsp;: 082244101304";
+        document.getElementById("mapholder").style.visibility = "hidden";
+    }
+
+    var x = document.getElementById("content");
+
+    function getLocation() {
+        document.getElementById("content").innerHTML = "Lokasi";
+        document.getElementById("mapholder").style.visibility = "visible";
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+
+    function showPosition(position) {
+        var latlon = new google.maps.LatLng(-7.946221, 112.615590)
+        var mapholder = document.getElementById('mapholder')
+        mapholder.style.height = '300px';
+        mapholder.style.width = '500px';
+
+        var myOptions = {
+            center: latlon,
+            zoom: 18,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL
+            }
+        }
+
+        var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+        var marker = new google.maps.Marker({
+            position: latlon,
+            map: map,
+            title: "You are here!"
+        });
+    }
+
+</script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <ul>
+                <li><a onclick="home()"><i class="fas fa-home"></i>Home</a></li>
+                <li><a onclick="profile()"><i class="fas fa-user"></i>Profile</a></li>
+                <li><a onclick="about()"><i class="fas fa-address-card"></i>About</a></li>
+                <li><a onclick="contact()"><i class="fas fa-address-book"></i>Contact</a></li>
+                <li><a onclick="getLocation()"><i class="fas fa-map-pin"></i>Map</a></li>
+            </ul>
+            <div class="social_media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="header">Biodata</div>
+            <div class="info">
+                <p id="content">Pilih menu di sebelah kiri</p>
+                <div id="mapholder"></div>
+            </div>
+        </div>
+    </div>
+</body>

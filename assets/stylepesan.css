@@ -1,0 +1,202 @@
+/*  Pramudya Wibowo
+    TI 2D
+*/
+body,
+ol,
+ul,
+h1,
+h3,
+h2,
+b,
+img {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-family: sans-serif;
+}
+
+p {
+    line-height: 1.5;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+body {
+    background: url(../img/bgindex.jpg) repeat;
+    background-size: 350px;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+.header .bg {
+    width: 100%;
+    height: 75px;
+    background: SaddleBrown;
+}
+
+.logo {
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 40px;
+    float: left;
+    width: 130px;
+}
+
+.judul {
+    font-family: Brush Script MT;
+    margin: 0;
+    padding: 10px;
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: sienna;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+    background-color: white;
+}
+
+.text {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+
+.welcome {
+    background-color: chocolate;
+    color: white;
+}
+
+.welcome h2 {
+    font-weight: lighter;
+    padding-top: 35px;
+    font-size: 50px;
+}
+
+.banner {
+    height: 350px;
+    background-image: url(../img/coffee1.jpg);
+    background-size: cover;
+    background-position: 0 400px;
+    border-top: 5px solid goldenrod;
+}
+
+.menus {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    padding: 0px 10px 10px;
+    grid-gap: 10px;
+}
+
+.menu {
+    color: white;
+    text-align: center;
+    background-color: coral;
+    padding: 10px;
+    border: 5px solid brown;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px black;
+}
+
+.slider1,
+.slider2,
+.slider3 {
+    padding-bottom: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.slider1 img,
+.slider2 img,
+.slider3 img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+}
+
+table {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:darkslategrey;
+    text-shadow: 1px 1px 0px #fff;
+    background: #eaebec;
+    border: #ccc 1px solid;
+  }
+   
+  table th {
+    padding: 15px 35px;
+    border-left:1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    background: coral;
+  }
+   
+  table th:first-child{  
+    border-left:none;  
+  }
+   
+  table tr {
+    text-align: center;
+    padding-left: 20px;
+  }
+   
+  table td:first-child {
+    text-align: left;
+    padding-left: 20px;
+    border-left: 0;
+  }
+   
+  table td {
+    padding: 15px 35px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    background: #fafafa;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+    background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
+  }
+   
+  table tr:last-child td {
+    border-bottom: 0;
+  }
+   
+  table tr:last-child td:first-child {
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+   
+  table tr:last-child td:last-child {
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+   
+  table tr:hover td {
+    background: #f2f2f2;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+    background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+  }
+
+.pesanan {
+    margin-top: 20px;
+    text-align: center;
+}

@@ -1,0 +1,98 @@
+<!--
+	Pramudya Wibowo
+	TI 2D
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Warkop Gunung</title>
+    <link rel="stylesheet" type="text/css" href="assets/stylemenu.css">
+    <link rel="icon" href="img/ikon.png">
+    <script src="assets/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="assets/fontawesome-free-5.15.1-web/css/all.css">
+    <script>
+        var i = 0;
+        $(document).ready(function() {
+            $('.slider1 img, .slider2 img, .slider3 img').hide();
+            showNextImage();
+            setInterval('showNextImage()', 3000);
+        });
+
+        function showNextImage() {
+            i++;
+            $('#robustagold' + i).appendTo('.slider1').fadeIn(1100).delay(1100).fadeOut(1100);
+            $('#luwaktoraja' + i).appendTo('.slider2').fadeIn(1100).delay(1100).fadeOut(1100);
+            $('#sumatera' + i).appendTo('.slider3').fadeIn(1100).delay(1100).fadeOut(1100);
+            if (i == 3) {
+                i = 0;
+            }
+        };
+
+    </script>
+    <script>
+        $(function() {
+            $(".navbar").load("assets/navbar.html");
+            $("footer").load("assets/footer.html");
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="bg">
+            <a href="#"><img class="logo" src="img/logo.png"></a>
+            <div class="judul">Warkop Gunung</div>
+        </div>
+    </div>
+    <div class="navbar"></div>
+    <div class="container">
+        <div class="text welcome">
+            <h2><b>DAFTAR MENU</b></h2>
+            <p>di <font style="font-family: Brush Script MT;">Warkop Gunung</font>, kami menyediakan berbagai macam menu kopi original dari berbagai daerah di Indonesia, teknik khas peracikan, serta pemandangan latar belakang Pegunungan Dataran Tinggi Hyang Argopuro</p>
+        </div>
+        <div class="banner"></div>
+        <div class="text konten">
+            <h3>DAFTAR MENU</h3>
+        </div>
+        <section class="menus">
+            <div class="menu">
+                <div class="slider1">
+                    <img id="robustagold1" src="img/robustagold1.jpg">
+                    <img id="robustagold2" src="img/robustagold2.jpg">
+                    <img id="robustagold3" src="img/robustagold3.jpg">
+                </div>
+                <div class="title">
+                    <h3>Robusta Gold</h3>
+                    <b>Rp. 8.000</b>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="slider2">
+                    <img id="luwaktoraja1" src="img/luwaktoraja1.jpg">
+                    <img id="luwaktoraja2" src="img/luwaktoraja2.jpg">
+                    <img id="luwaktoraja3" src="img/luwaktoraja3.jpg">
+                </div>
+                <div class="title">
+                    <h3>Luwak Toraja</h3>
+                    <b>Rp. 22.000</b>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="slider3">
+                    <img id="sumatera1" src="img/sumatera1.jpg">
+                    <img id="sumatera2" src="img/sumatera2.jpg">
+                    <img id="sumatera3" src="img/sumatera3.jpg">
+                </div>
+                <div class="title">
+                    <h3>Sumatera Mandheling</h3>
+                    <b>Rp. 12.000</b>
+                </div>
+            </div>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+
+</html>

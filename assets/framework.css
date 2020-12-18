@@ -1,0 +1,71 @@
+/*  Pramudya Wibowo
+    TI 2D
+*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.6em;
+}
+
+.bgded {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.clear,
+.group {
+    display: block;
+}
+
+.clear::before,
+.clear::after,
+.group::before,
+.group::after {
+    display: table;
+    content: "";
+}
+
+.clear,
+.clear::after,
+.group,
+.group::after {
+    clear: both;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 20px;
+    margin: 0;
+}
+
+.hoc {
+    display: block;
+    margin: 0 auto;
+}
+
+.one_half,
+.one_third,
+.one_quarter {
+    display: inline-block;
+    float: left;
+    margin: 0 0 0 4%;
+    list-style: none;
+}
+
+.one_third {
+    width: 30%;
+}

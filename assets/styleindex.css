@@ -1,0 +1,95 @@
+@import url("assets/fontawesome-free-5.15.1-web/css/all.css");
+@import url("framework.css");
+
+.row0, .row0 a{}
+.row1, .row1 a{}
+.row2, .row2 a{}
+.row3, .row3 a{}
+.row4, .row4 a{}
+.row5, .row5 a{}
+
+.header .bg img{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 40px;
+    float: left;
+    width: 100px;
+}
+
+#pageintro{
+    background-size:100% 75%;
+    text-align:center;
+}
+
+#pageintro figure{
+    padding-bottom:20px;
+}
+
+#pageintro figcaption{
+    margin:0;
+    padding:100px 0;
+    font-size:4rem;
+    color: white;
+}
+
+.container{
+    padding:80px 0;
+}
+
+/* Content */
+.container .content{}
+
+.sectiontitle{
+    padding-top: 50px;
+    display:block;
+    max-width:50%;
+    margin: 100px auto 50px;
+    text-align:center;
+}
+
+#services{
+    margin-bottom:80px;
+}
+
+#services > li:nth-child(3n+1){
+    margin-left:0; clear:left;
+}
+
+#services article *{
+    margin:0;
+    padding:0;
+}
+
+#services article .heading, #services article p{
+    margin-bottom:20px;
+    margin-left: 20px;
+}
+#services article i{
+    margin-right:15px;
+    font-size:32px;
+}
+#services article footer i{
+    margin-right:0; 
+    font-size:inherit;
+}
+
+#services a{
+    color:inherit;
+}
+
+#services article:hover a{
+    color:#FD8866;
+}
+
+body{
+    color:#DFDFDF; 
+    background-color:#1A1A1A;
+}
+
+.row3{
+    color:#474747; background-color:#FFFFFF;
+}
+
+@media screen and (min-width:1140px){
+	.hoc{max-width:1140px;}
+}
